@@ -1,0 +1,17 @@
+#nav {
+    background-color: bisque;
+    text-align: center;
+    padding: 5px;
+}
+
+#nav li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 5px;
+}
+
+#nav li:hover {
+    background-color: yellow;
+    color: white;
+}
