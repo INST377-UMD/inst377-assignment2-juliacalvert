@@ -13,4 +13,5 @@ function loadQuote(){
 
 }
 
+
 window.onload = loadQuote;
