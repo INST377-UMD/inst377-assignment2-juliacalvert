@@ -20,7 +20,21 @@ async function redditStocks() {
         commentsCell.textContent = stock.no_of_comments;
 
         const sentimentCell = document.createElement('td');
-        sentimentCell.innerHTML = stock.sentiment === "Bullish" ? "🐂 Bullish" : "🐻 Bearish";
+
+        const bullishImg = document.createElement('img');
+        bullishImg.src = "bullish.png";
+        
+        const bearishImg = document.createElement('img');
+        bearishImg.src = "bearish.png";
+        
+
+        if (stock.sentiment === "Bullish") {
+            sentimentCell.appendChild(bullishImg);
+        } else if (stock.sentiment === "Bearish") {
+            sentimentCell.appendChild(bearishImg);
+        } else {
+            sentimentCell.textContent = "null";
+        }
 
         tableRow.appendChild(tickerCell);
         tableRow.appendChild(commentsCell);
