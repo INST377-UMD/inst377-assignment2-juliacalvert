@@ -47,18 +47,40 @@ async function redditStocks() {
 }
 
 
-window.onload = function () {
-    redditStocks();
 
+async function chart() {
+    const apiKey = "si201vf6eGWCx2fUW4NH_PLs8iIAApSO";
+    const ticker = document.getElementById('ticker').value.toUpperCase();
+    const days = document.getElementById('days').value;
+    
+    const today = new Date();
+    const pastDate = new Date();
+    pastDate.setDate(today.getDate() - days);
+
+    const from = pastDate.toISOString().split('T')[0];
+    const to = today.toISOString().split('T')[0];
+
+    const url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/1/day/${from}/${to}?adjusted=true&sort=asc&apiKey=${apiKey}`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const labels = data.results.map(point => {
+        const date = new Date(point.t);
+        return `${date.getMonth() + 1}/${date.getDate()}`; // MM/DD
+    });
+
+    const closingPrices = data.results.map(point => point.c);
+
+    
     const ctx = document.getElementById('myChart').getContext('2d');
 
     new Chart(ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labels,
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: '($) Stock Price',
+          data: closingPrices,
           borderWidth: 1
         }]
       },
@@ -70,5 +92,11 @@ window.onload = function () {
         }
       }
     });
-  };
+}
 
+
+document.getElementById('lookup-button').onclick = chart;
+
+window.onload = function () {
+    redditStocks();
+}
