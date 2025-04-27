@@ -1,5 +1,5 @@
 async function redditStocks() {
-    const url = "https://tradestie.com/api/v1/apps/reddit?date=2022-04-03";
+    const url = "https://tradestie.com/api/v1/apps/reddit?date=2025-04-27";
     const response = await fetch(url);
     const stocks = await response.json();
     const top5 = stocks.slice(0, 5);
@@ -92,10 +92,11 @@ async function chart() {
         }
       }
     });
+    document.getElementById('myChart').style.display = 'block';
 }
 
 
-document.getElementById('lookup-button').onclick = chart;
+document.getElementById('lookupButton').onclick = chart;
 
 window.onload = function () {
     redditStocks();
