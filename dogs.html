@@ -2,6 +2,8 @@
     <head>
         <title>Dogs</title>
         <link rel="stylesheet" href="external.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+        <script src="dogs.js" defer></script>
     </head>
 
     <body>
@@ -13,7 +15,20 @@
             </ul>
         </nav>
 
-        <p>This is for dogs</p>
+        <h1>Doggos!! &#128054;</h1>
+
+        <div id="carousel" data-simple-slider></div>
+
+        
+        <h2>Dog Breeds</h2>
+        <div id="breed-buttons"></div>
+
+        <div id="breed-info" style="display: none;">
+            <h3 id="breed-name"></h3>
+            <p id="breed-description"></p>
+            <p><strong>Min Life Span:</strong> <span id="min-life"></span> years</p>
+            <p><strong>Max Life Span:</strong> <span id="max-life"></span> years</p>
+        </div>
 
         <div class="audio-box">
             <h2>In this webpage there are options to navigate using audio!</h2>

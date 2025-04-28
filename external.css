@@ -168,3 +168,12 @@ table, th, td {
 #reddit-stocks {
     margin-top: 100px;
 }
+
+#carousel {
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    display: block; /* Make sure it's visible */
+}
