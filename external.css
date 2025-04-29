@@ -118,6 +118,7 @@ table, th, td {
 .lookup-Button {
   align-items: center;
   margin-top: 10px;
+  margin-bottom: 10px;
   appearance: none;
   background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
   border: 0;
@@ -244,4 +245,8 @@ table, th, td {
     border: 3px solid #39739d;
     border-radius: 3px;
     margin-bottom: 15px;
+}
+
+#myChart{
+    background-color: #ddd;
 }
