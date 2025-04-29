@@ -1,3 +1,5 @@
+let allBreeds = [];
+
 function getImages() {
     const url = "https://dog.ceo/api/breeds/image/random/10";
     
@@ -29,6 +31,8 @@ function dogButtons() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
+            allBreeds = data.data;
+            
             const dogButtons = document.getElementById('dog-buttons');
 
             data.data.forEach(breed => {
@@ -45,6 +49,7 @@ function dogButtons() {
             });
         })
 }
+
 
 function showInfo(breed){
     const breedInfo = document.getElementById('breed-info');
@@ -81,9 +86,12 @@ if (annyang) {
         const formattedPage = page.toLowerCase() + '.html';
         window.location.href = formattedPage;
       },
-      'load dog breed *breed': (breed) => {
-        showInfo(breed);
-      }
+      'load dog breed *breed': (spokenBreed) => {
+        const found = allBreeds.find(b => 
+        b.attributes.name.toLowerCase() === spokenBreed.toLowerCase()
+        );
+        showInfo(found);
+    }
     };
 
     annyang.addCommands(commands);

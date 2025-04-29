@@ -66,7 +66,7 @@ async function chart() {
 
     const labels = data.results.map(point => {
         const date = new Date(point.t);
-        return `${date.getMonth() + 1}/${date.getDate()}`; // MM/DD
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     });
 
     const closingPrices = data.results.map(point => point.c);
@@ -100,37 +100,38 @@ document.getElementById('lookupButton').onclick = chart;
 
 window.onload = function () {
     redditStocks();
-}
 
-if (annyang) {
-    // Define your commands
-    const commands = {
-      'hello': () => {
-        alert('Hello!');
-      },
-      'change the color to *color': (color) => {
-        document.body.style.backgroundColor = color;
-      },
-      'navigate to *page': (page) => {
-        const formattedPage = page.toLowerCase() + '.html';
-        window.location.href = formattedPage;
-      },
-      'lookup *ticker': (ticker) => {
-        document.getElementById('ticker').value = ticker.toUpperCase();
-        chart();
+    if (annyang) {
+        // Define your commands
+        const commands = {
+          'hello': () => {
+            alert('Hello!');
+          },
+          'change the color to *color': (color) => {
+            document.body.style.backgroundColor = color;
+          },
+          'navigate to *page': (page) => {
+            const formattedPage = page.toLowerCase() + '.html';
+            window.location.href = formattedPage;
+          },
+          'lookup *ticker': (ticker) => {
+            document.getElementById('ticker').value = ticker.toUpperCase();
+            chart();
+        }
+    
+        };
+    
+        annyang.addCommands(commands);
+    
+        document.getElementById('audio-on').addEventListener('click', () => {
+          annyang.start();
+          console.log('Voice recognition started');
+        });
+    
+        document.getElementById('audio-off').addEventListener('click', () => {
+          annyang.abort();
+          console.log('Voice recognition stopped');
+        });
     }
-
-    };
-
-    annyang.addCommands(commands);
-
-    document.getElementById('audio-on').addEventListener('click', () => {
-      annyang.start();
-      console.log('Voice recognition started');
-    });
-
-    document.getElementById('audio-off').addEventListener('click', () => {
-      annyang.abort();
-      console.log('Voice recognition stopped');
-    });
 }
+
