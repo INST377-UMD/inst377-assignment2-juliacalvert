@@ -4,9 +4,7 @@ function getImages() {
     fetch(url)
         .then((result) => result.json())
         .then(data => {
-            console.log("API response:", data);
             const carousel = document.getElementById('carousel');
-            console.log("Carousel div:", carousel);
 
             data.message.forEach((imageURL) => {
                 console.log("Adding image:", imageURL);
@@ -24,4 +22,47 @@ function getImages() {
 
 }
 
-window.onload = getImages;
+
+function dogButtons() {
+    const url = "https://dogapi.dog/api/v2/breeds";
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const dogButtons = document.getElementById('dog-buttons');
+
+            data.data.forEach(breed => {
+                const button = document.createElement('button');
+                button.textContent = breed.attributes.name;
+                button.setAttribute('dogs', 'breed-button'); // add custom class
+                
+
+                button.addEventListener('click', () => {
+                    showInfo(breed);
+                });
+
+                dogButtons.appendChild(button);
+            });
+        })
+}
+
+function showInfo(breed){
+    const breedInfo = document.getElementById('breed-info');
+    const breedName = document.getElementById('breed-name');
+    const breedDescription = document.getElementById('description');
+    const minLife = document.getElementById('min-life');
+    const maxLife = document.getElementById('max-life');
+    //const lifeSpan = breed.life_span.split(' - '); 
+
+    breedInfo.style.display = 'block';
+    breedName.textContent = breed.attributes.name;
+    breedDescription.textContent = breed.attributes.description;
+    minLife.innerText = breed.attributes.life.min;
+    maxLife.innerText = breed.attributes.life.max;
+}
+
+
+window.onload = function() {
+    getImages(); // your images carousel
+    dogButtons(); // your breeds buttons
+};
