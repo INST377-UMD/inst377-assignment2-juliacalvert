@@ -73,7 +73,6 @@ window.onload = function() {
 
 
 if (annyang) {
-    // Define your commands
     const commands = {
       'hello': () => {
         alert('Hello!');
@@ -95,14 +94,11 @@ if (annyang) {
 
     annyang.addCommands(commands);
 
-    // Button event listeners
     document.getElementById('audio-on').addEventListener('click', () => {
       annyang.start();
-      console.log('Voice recognition started');
     });
 
     document.getElementById('audio-off').addEventListener('click', () => {
       annyang.abort();
-      console.log('Voice recognition stopped');
     });
 }

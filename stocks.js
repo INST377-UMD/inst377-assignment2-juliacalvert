@@ -102,7 +102,6 @@ window.onload = function () {
     redditStocks();
 
     if (annyang) {
-        // Define your commands
         const commands = {
           'hello': () => {
             alert('Hello!');
@@ -125,12 +124,10 @@ window.onload = function () {
     
         document.getElementById('audio-on').addEventListener('click', () => {
           annyang.start();
-          console.log('Voice recognition started');
         });
     
         document.getElementById('audio-off').addEventListener('click', () => {
           annyang.abort();
-          console.log('Voice recognition stopped');
         });
     }
 }

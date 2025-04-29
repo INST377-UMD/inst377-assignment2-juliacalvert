@@ -243,4 +243,5 @@ table, th, td {
     background-color: white;
     border: 3px solid #39739d;
     border-radius: 3px;
+    margin-bottom: 15px;
 }
