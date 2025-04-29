@@ -101,3 +101,38 @@ document.getElementById('lookupButton').onclick = chart;
 window.onload = function () {
     redditStocks();
 }
+
+
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.lang = 'en-US';
+
+    document.getElementById('audio-on').addEventListener('click', () => {
+        recognition.start();
+    });
+
+    document.getElementById('audio-off').addEventListener('click', () => {
+        recognition.stop();
+    });
+
+    recognition.onresult = function (event) {
+        const transcript = event.results[event.results.length - 1][0].transcript.trim();
+        console.log('Heard:', transcript);
+
+        if (transcript.toLowerCase().startsWith("lookup")) {
+            const parts = transcript.split(" ");
+            if (parts.length >= 2) {
+                const ticker = parts[1].toUpperCase(); // Ex: MSFT, AAPL, etc.
+
+                document.getElementById('ticker').value = ticker;
+                document.getElementById('days').value = "30"; // Always default to 30 days
+
+                chart(); // Call your existing chart() function!
+            }
+        }
+    }
+}
