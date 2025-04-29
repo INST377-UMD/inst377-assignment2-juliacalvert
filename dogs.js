@@ -63,6 +63,39 @@ function showInfo(breed){
 
 
 window.onload = function() {
-    getImages(); // your images carousel
-    dogButtons(); // your breeds buttons
+    getImages();
+    dogButtons();
 };
+
+
+if (annyang) {
+    // Define your commands
+    const commands = {
+      'hello': () => {
+        alert('Hello!');
+      },
+      'change the color to *color': (color) => {
+        document.body.style.backgroundColor = color;
+      },
+      'navigate to *page': (page) => {
+        const formattedPage = page.toLowerCase() + '.html';
+        window.location.href = formattedPage;
+      },
+      'load dog breed *breed': (breed) => {
+        showInfo(breed);
+      }
+    };
+
+    annyang.addCommands(commands);
+
+    // Button event listeners
+    document.getElementById('audio-on').addEventListener('click', () => {
+      annyang.start();
+      console.log('Voice recognition started');
+    });
+
+    document.getElementById('audio-off').addEventListener('click', () => {
+      annyang.abort();
+      console.log('Voice recognition stopped');
+    });
+}

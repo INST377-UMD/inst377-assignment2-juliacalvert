@@ -102,37 +102,35 @@ window.onload = function () {
     redditStocks();
 }
 
+if (annyang) {
+    // Define your commands
+    const commands = {
+      'hello': () => {
+        alert('Hello!');
+      },
+      'change the color to *color': (color) => {
+        document.body.style.backgroundColor = color;
+      },
+      'navigate to *page': (page) => {
+        const formattedPage = page.toLowerCase() + '.html';
+        window.location.href = formattedPage;
+      },
+      'lookup *ticker': (ticker) => {
+        document.getElementById('ticker').value = ticker.toUpperCase();
+        chart();
+    }
 
+    };
 
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-if (SpeechRecognition) {
-    const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.lang = 'en-US';
+    annyang.addCommands(commands);
 
     document.getElementById('audio-on').addEventListener('click', () => {
-        recognition.start();
+      annyang.start();
+      console.log('Voice recognition started');
     });
 
     document.getElementById('audio-off').addEventListener('click', () => {
-        recognition.stop();
+      annyang.abort();
+      console.log('Voice recognition stopped');
     });
-
-    recognition.onresult = function (event) {
-        const transcript = event.results[event.results.length - 1][0].transcript.trim();
-        console.log('Heard:', transcript);
-
-        if (transcript.toLowerCase().startsWith("lookup")) {
-            const parts = transcript.split(" ");
-            if (parts.length >= 2) {
-                const ticker = parts[1].toUpperCase(); // Ex: MSFT, AAPL, etc.
-
-                document.getElementById('ticker').value = ticker;
-                document.getElementById('days').value = "30"; // Always default to 30 days
-
-                chart(); // Call your existing chart() function!
-            }
-        }
-    }
 }
