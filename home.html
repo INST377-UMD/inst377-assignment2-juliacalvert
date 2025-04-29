@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>INST377 - Assignment 2</title>
+        <link rel="stylesheet" href="external.css">
+        <script src="home.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    </head>
+
+    <body>
+        <h1>INST377 - Activities</h1>
+        <!-- Navigation Bar -->
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+        </nav>
+
+        <h2>These are some different activities we can try!</h2>
+
+        <div class="activity-buttons">
+            <a href="stocks.html">
+                <button class="button-56" role="button">Stocks</button>
+            </a>
+            <a href="dogs.html">
+                <button class="button-56" role="button">Dogs</button>
+            </a>
+        </div>
+
+        <div class="quote-box">
+            <h2>Quote of the day load</h2>
+            <p id="quote"></p>
+            <p id="author"></p>
+        </div>
+
+
+        <div class="audio-box">
+            <h2>In this webpage there are options to navigate using audio!</h2>
+            <p>Ensure your mic is enabled to use this feature.</p>
+            <ul>
+                <li>Navigate to a different page
+                    <ul>
+                        <li><strong>Say: Navigate to &lt;page&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Change the page color
+                    <ul>
+                        <li><strong>Say: Change the color to &lt;color&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Say Hello back to you
+                    <ul>
+                        <li><strong>Say: Hello</strong></li>
+                    </ul>
+                </li>
+            </ul>
+            <button id="audio-on" class="audio-btn">Turn On Listening</button>
+            <button id="audio-off" class="audio-btn">Turn Off Listening</button>
+        </div>
+
+    </body>
+</html>

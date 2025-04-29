@@ -1,0 +1,285 @@
+body {
+    background-color: antiquewhite;
+}
+
+#nav {
+    background-color: lightblue;
+    text-align: center;
+    padding: 5px;
+}
+
+#nav li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 5px;
+}
+
+#nav li:hover {
+    background-color: darkcyan;
+    color: white;
+}
+
+.audio-box {
+    width: fit-content;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    margin: 0 auto;
+    background-color: azure;
+}
+
+
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+.activity-buttons {
+    display: flex;
+    justify-content: center; 
+    gap: 30px;              
+    margin: 20px 0;
+}
+
+.quote-box {
+    width: 50%;
+    border: 2px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+    background-color: white;
+    margin: 20px auto;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid;
+    background-color: white;
+}
+
+.lookup-Button {
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 30px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 12px;
+}
+
+.lookup-Button:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.lookup-Button:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.lookup-Button:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+#myChart {
+    display: none;
+}
+
+#reddit-stocks {
+    margin-top: 100px;
+}
+
+#carousel {
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    display: block; /* Make sure it's visible */
+}
+
+
+.breed-button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.breed-button:hover {
+    background-color: #ddd;
+}
+
+
+.dog-button {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 1px 8px;
+  margin-bottom: 19px;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.dog-button:hover,
+.dog-button:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.dog-button:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.dog-button:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+#breed-info {
+    background-color: white;
+    border: 3px solid #39739d;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+#myChart{
+    background-color: #ddd;
+}
+
+.audio-btn {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 40%;
+}
+
+.audio-btn:hover,
+.audio-btn:focus {
+  background-color: #F082AC;
+}

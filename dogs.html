@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Dogs</title>
+        <link rel="stylesheet" href="external.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+        <script src="dogs.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    </head>
+
+    <body>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+        </nav>
+
+        <h1>Doggos!! &#128054;</h1>
+
+        <div id="carousel" data-simple-slider></div>
+
+        
+        <h2>Dog Breeds</h2>
+        <div id="dog-buttons"></div>
+
+        <div id="breed-info" style="display: none;">
+            <h3 id="breed-name"></h3>
+            <p><strong>Description:</strong><span id="description"></span></p>
+            <p><strong>Min Life:</strong> <span id="min-life"></span> years</p>
+            <p><strong>Max Life:</strong> <span id="max-life"></span> years</p>
+        </div>
+
+        <div class="audio-box">
+            <h2>In this webpage there are options to navigate using audio!</h2>
+            <p>Ensure your mic is enabled to use this feature.</p>
+            <ul>
+                <li>Load Dog Breed
+                    <ul>
+                        <li><strong>Say: Load dog breed &lt;Dog Breed Name&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Navigate to a different page
+                    <ul>
+                        <li><strong>Say: Navigate to &lt;page&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Change the page color
+                    <ul>
+                        <li><strong>Say: Change the color to &lt;color&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Say Hello back to you
+                    <ul>
+                        <li><strong>Say: Hello</strong></li>
+                    </ul>
+                </li>
+            </ul>
+            <button id="audio-on" class="audio-btn">Turn On Listening</button>
+            <button id="audio-off" class="audio-btn">Turn Off Listening</button>
+        </div>
+    </body>
+</html>

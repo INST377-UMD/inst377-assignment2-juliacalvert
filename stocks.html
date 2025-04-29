@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Stocks</title>
+        <link rel="stylesheet" href="external.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="stocks.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    </head>
+
+    <body>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+        </nav>
+        <h1>Let's Chart Some Stocks!</h1>
+
+        <div id="stock-lookup">
+            <input type="text" id="ticker" maxlength="5" required> <br>
+            <select id="days">
+              <option value="30">30 Days</option>
+              <option value="60">60 Days</option>
+              <option value="90">90 Days</option>
+            </select><br>
+            
+            <button class="lookup-Button" id="lookupButton" role="button">Lookup Stock</button>
+        </div>
+
+        <div>
+            <canvas id="myChart" width="600" height="400"></canvas>
+        </div>
+
+        <table id="reddit-stocks">
+            <thead>
+              <tr>
+                <th>Ticker</th>
+                <th>Comment Count</th>
+                <th>Sentiment</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+
+        <div class="audio-box">
+            <h2>In this webpage there are options to navigate using audio!</h2>
+            <p>Ensure your mic is enabled to use this feature.</p>
+            <ul>
+                <li>Lookup Stocks
+                    <ul>
+                        <li><strong>Say: Lookup &lt;stock&gt;</strong></li>
+                        <li>Example: Lookup MSFT</li>
+                    </ul>
+                </li>
+                <li>Navigate to a different page
+                    <ul>
+                        <li><strong>Say: Navigate to &lt;page&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Change the page color
+                    <ul>
+                        <li><strong>Say: Change the color to &lt;color&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Say Hello back to you
+                    <ul>
+                        <li><strong>Say: Hello</strong></li>
+                    </ul>
+                </li>
+            </ul>
+            <button id="audio-on" class="audio-btn">Turn On Listening</button>
+            <button id="audio-off" class="audio-btn">Turn Off Listening</button>
+        </div>
+    </body>
+</html>
