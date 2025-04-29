@@ -38,7 +38,7 @@ function dogButtons() {
             data.data.forEach(breed => {
                 const button = document.createElement('button');
                 button.textContent = breed.attributes.name;
-                button.setAttribute('dogs', 'breed-button'); // add custom class
+                button.setAttribute("class", "dog-button");
                 
 
                 button.addEventListener('click', () => {
@@ -57,10 +57,9 @@ function showInfo(breed){
     const breedDescription = document.getElementById('description');
     const minLife = document.getElementById('min-life');
     const maxLife = document.getElementById('max-life');
-    //const lifeSpan = breed.life_span.split(' - '); 
 
     breedInfo.style.display = 'block';
-    breedName.textContent = breed.attributes.name;
+    breedName.textContent = `Name: ${breed.attributes.name}`;
     breedDescription.textContent = breed.attributes.description;
     minLife.innerText = breed.attributes.life.min;
     maxLife.innerText = breed.attributes.life.max;
