@@ -69,36 +69,41 @@ function showInfo(breed){
 window.onload = function() {
     getImages();
     dogButtons();
-};
 
+    if (annyang) {
+        const commands = {
+          'hello': () => {
+            alert('Hello!');
+          },
+          'change the color to *color': (color) => {
+            document.body.style.backgroundColor = color;
+          },
+          'navigate to *page': (page) => {
+            const formattedPage = page.toLowerCase() + '.html';
+            window.location.href = formattedPage;
+          },
+          'load dog breed *breed': (spokenBreed) => {
+            const found = allBreeds.find(breed => 
+            breed.attributes.name.toLowerCase() === spokenBreed.toLowerCase()
+            );
+            showInfo(found);
+        }
+        };
+    
+        annyang.addCommands(commands);
 
-if (annyang) {
-    const commands = {
-      'hello': () => {
-        alert('Hello!');
-      },
-      'change the color to *color': (color) => {
-        document.body.style.backgroundColor = color;
-      },
-      'navigate to *page': (page) => {
-        const formattedPage = page.toLowerCase() + '.html';
-        window.location.href = formattedPage;
-      },
-      'load dog breed *breed': (spokenBreed) => {
-        const found = allBreeds.find(b => 
-        b.attributes.name.toLowerCase() === spokenBreed.toLowerCase()
-        );
-        showInfo(found);
+        if (sessionStorage.getItem('voiceEnabled') === 'true') {
+            annyang.start();
+        }
+
+        document.getElementById('audio-on').addEventListener('click', () => {
+            annyang.start();
+            sessionStorage.setItem('voiceEnabled', 'true');
+        });
+
+        document.getElementById('audio-off').addEventListener('click', () => {
+            annyang.abort();
+            sessionStorage.setItem('voiceEnabled', 'false');
+        });
     }
-    };
-
-    annyang.addCommands(commands);
-
-    document.getElementById('audio-on').addEventListener('click', () => {
-      annyang.start();
-    });
-
-    document.getElementById('audio-off').addEventListener('click', () => {
-      annyang.abort();
-    });
-}
+};

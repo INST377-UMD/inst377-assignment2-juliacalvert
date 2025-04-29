@@ -103,32 +103,39 @@ window.onload = function () {
 
     if (annyang) {
         const commands = {
-          'hello': () => {
-            alert('Hello!');
-          },
-          'change the color to *color': (color) => {
-            document.body.style.backgroundColor = color;
-          },
-          'navigate to *page': (page) => {
-            const formattedPage = page.toLowerCase() + '.html';
-            window.location.href = formattedPage;
-          },
-          'lookup *ticker': (ticker) => {
-            document.getElementById('ticker').value = ticker.toUpperCase();
-            chart();
-        }
-    
+            'hello': () => {
+                alert('Hello!');
+            },
+            'change the color to *color': (color) => {
+                document.body.style.backgroundColor = color;
+            },
+            'navigate to *page': (page) => {
+                sessionStorage.setItem('voiceEnabled', 'true');
+                const formattedPage = page.toLowerCase() + '.html';
+                window.location.href = formattedPage;
+            },
+            'lookup *ticker': (ticker) => {
+                document.getElementById('ticker').value = ticker.toUpperCase();
+                chart();
+            }
         };
-    
+
         annyang.addCommands(commands);
-    
+
+        if (sessionStorage.getItem('voiceEnabled') === 'true') {
+            annyang.start();
+        }
+
+
         document.getElementById('audio-on').addEventListener('click', () => {
-          annyang.start();
+            annyang.start();
+            sessionStorage.setItem('voiceEnabled', 'true');
         });
-    
+
         document.getElementById('audio-off').addEventListener('click', () => {
-          annyang.abort();
+            annyang.abort();
+            sessionStorage.setItem('voiceEnabled', 'false');
         });
     }
-}
+};
 
